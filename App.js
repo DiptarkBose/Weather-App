@@ -1,21 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
+import { Router, Stack, Scene } from "react-native-router-flux";
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+//Import Screens
+import WeatherNewsScreen from "./screens/WeatherNewsScreen";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => (
+    <Router navigationBarStyle={{ backgroundColor: '#ffcc00' }}>
+        <Scene key="root">
+            <Scene
+                key="news"
+                type="replace"
+                title="GT Weather App"
+                component={WeatherNewsScreen}
+                initial
+            />
+        </Scene>
+    </Router>
+);
+
+export default App;

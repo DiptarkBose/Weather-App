@@ -1,21 +1,24 @@
 import { Router, Stack, Scene } from "react-native-router-flux";
 import React from 'react';
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
+
 
 //Import Screens
 import WeatherNewsScreen from "./screens/WeatherNewsScreen";
+import WeatherInfoScreen from "./screens/WeatherInfoScreen";
+
+const Drawer = createDrawerNavigator();
 
 const App = () => (
-    <Router navigationBarStyle={{ backgroundColor: '#ffcc00' }}>
-        <Scene key="root">
-            <Scene
-                key="news"
-                type="replace"
-                title="GT Weather App"
-                component={WeatherNewsScreen}
-                initial
-            />
-        </Scene>
-    </Router>
+    <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Weather Info">
+            <Drawer.Screen name="Weather Info" component={WeatherInfoScreen} />
+            <Drawer.Screen name="Weather News" component={WeatherNewsScreen} />
+        </Drawer.Navigator>
+    </NavigationContainer>
 );
 
 export default App;
+

@@ -8,7 +8,7 @@ export default WeatherNewsScreen = () => {
 
   const getWeatherNews = async () => {
     try {
-      const response = await fetch('https://newsapi.org/v2/everything?q=weather&apiKey=7e7d949c414246beaed5f912607858cf');
+      const response = await fetch('https://newsapi.org/v2/everything?q=weather&apiKey=myKey');
       const json = await response.json();
       setData(json.articles);
     } catch (e) {
